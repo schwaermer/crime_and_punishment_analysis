@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Преступление и наказание - NLP анализ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fafafa;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            padding-left: 10px;
+            border-left: 4px solid #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th {
+            background: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background: #f5f5f5;
+        }
+        .two-columns {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        .highlight {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        hr {
+            margin: 30px 0;
+            border: none;
+            height: 1px;
+            background: #ddd;
+        }
+        .footer {
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Преступление и наказание</h1>
+<p style="text-align: center; color: #666;">TF-IDF + LSA (SVD)</p>
+
+<h2>Топ-20 слов по TF-IDF</h2>
+<div class="two-columns">
+    <div class="column">
+        <h3>Русский</h3>
+        <table>
+            <tr><th>#</th><th>Слово</th><th>Вес</th></tr>
+            <tr><td>1</td><td>человек</td><td>0.1223</td></tr>
+            <tr><td>2</td><td>комната</td><td>0.0803</td></tr>
+            <tr><td>3</td><td>знать</td><td>0.0798</td></tr>
+            <tr><td>4</td><td>молодой</td><td>0.0773</td></tr>
+            <tr><td>5</td><td>мочь</td><td>0.0747</td></tr>
+            <tr><td>6</td><td>иванович</td><td>0.0745</td></tr>
+            <tr><td>7</td><td>государь</td><td>0.0675</td></tr>
+            <tr><td>8</td><td>катерина</td><td>0.0673</td></tr>
+            <tr><td>9</td><td>рука</td><td>0.0661</td></tr>
+            <tr><td>10</td><td>деньга</td><td>0.0658</td></tr>
+            <tr><td>11</td><td>квартира</td><td>0.0652</td></tr>
+            <tr><td>12</td><td>месяц</td><td>0.0630</td></tr>
+            <tr><td>13</td><td>мармелад</td><td>0.0627</td></tr>
+            <tr><td>14</td><td>говорить</td><td>0.0620</td></tr>
+            <tr><td>15</td><td>хотя</td><td>0.0612</td></tr>
+            <tr><td>16</td><td>рубль</td><td>0.0603</td></tr>
+            <tr><td>17</td><td>лестница</td><td>0.0589</td></tr>
+            <tr><td>18</td><td>пойти</td><td>0.0575</td></tr>
+            <tr><td>19</td><td>лицо</td><td>0.0566</td></tr>
+            <tr><td>20</td><td>бояться</td><td>0.0565</td></tr>
+        </table>
+    </div>
+    <div class="column">
+        <h3>English</h3>
+        <table>
+            <tr><th>#</th><th>Word</th><th>Weight</th></tr>
+            <tr><td>1</td><td>man</td><td>0.1219</td></tr>
+            <tr><td>2</td><td>sir</td><td>0.0843</td></tr>
+            <tr><td>3</td><td>time</td><td>0.0743</td></tr>
+            <tr><td>4</td><td>young</td><td>0.0730</td></tr>
+            <tr><td>5</td><td>like</td><td>0.0720</td></tr>
+            <tr><td>6</td><td>room</td><td>0.0716</td></tr>
+            <tr><td>7</td><td>know</td><td>0.0704</td></tr>
+            <tr><td>8</td><td>though</td><td>0.0682</td></tr>
+            <tr><td>9</td><td>katerina</td><td>0.0668</td></tr>
+            <tr><td>10</td><td>old</td><td>0.0662</td></tr>
+            <tr><td>11</td><td>ivanovna</td><td>0.0661</td></tr>
+            <tr><td>12</td><td>little</td><td>0.0645</td></tr>
+            <tr><td>13</td><td>raskolnikov</td><td>0.0601</td></tr>
+            <tr><td>14</td><td>even</td><td>0.0600</td></tr>
+            <tr><td>15</td><td>house</td><td>0.0600</td></tr>
+            <tr><td>16</td><td>yes</td><td>0.0597</td></tr>
+            <tr><td>17</td><td>marmeladov</td><td>0.0595</td></tr>
+            <tr><td>18</td><td>year</td><td>0.0586</td></tr>
+            <tr><td>19</td><td>understand</td><td>0.0586</td></tr>
+            <tr><td>20</td><td>woman</td><td>0.0564</td></tr>
+        </table>
+    </div>
+	<img src="tfidf_top_words_comparison.png" width="1000">
+	<p style="margin-top: 10px; color: #555;"><strong>Выводы:</strong> В русском топе 10 существительных, в основном они связаны с человеком ("человек", "рука", "лицо"), с деньгами, которые являются мотивом для действий главного героя, и с пространством, которое играет отражает внутрениий мир героев романе. Глаголы "знать", "мочь", "говорить", в целом, нейтральные, но "бояться" уже лучше отражает сюжет произведения. В английском топе есть несколько стоп-слов, которые не были исключены ("yes"). Тем не менее, семантические группы те же (человек, его окружение, его характеристика вроде "young", глагол "understand").</p>
+</div>
+
+<h2>Explained Variance (важность тем)</h2>
+<div class="two-columns">
+    <div class="column">
+        <h3>Русский</h3>
+        <table>
+            <tr><th>Тема</th><th>Доля</th><th>Накоплено</th></tr>
+            <tr><td>1</td><td>0.6%</td><td>0.6%</td></tr>
+            <tr><td>2</td><td>10.0%</td><td>10.6%</td></tr>
+            <tr><td>3</td><td>8.3%</td><td>18.9%</td></tr>
+            <tr><td>4</td><td>7.7%</td><td>26.6%</td></tr>
+            <tr><td>5</td><td>7.2%</td><td>33.8%</td></tr>
+            <tr><td>6</td><td>5.7%</td><td>39.5%</td></tr>
+            <tr><td>7</td><td>5.3%</td><td>44.8%</td></tr>
+            <tr><td>8</td><td>5.1%</td><td>49.9%</td></tr>
+        </table>
+    </div>
+    <div class="column">
+        <h3>English</h3>
+        <table>
+            <tr><th>Topic</th><th>Ratio</th><th>Cumulative</th></tr>
+            <tr><td>1</td><td>0.6%</td><td>0.6%</td></tr>
+            <tr><td>2</td><td>10.3%</td><td>10.9%</td></tr>
+            <tr><td>3</td><td>8.0%</td><td>18.9%</td></tr>
+            <tr><td>4</td><td>7.1%</td><td>26.0%</td></tr>
+            <tr><td>5</td><td>6.2%</td><td>32.2%</td></tr>
+            <tr><td>6</td><td>6.0%</td><td>38.2%</td></tr>
+            <tr><td>7</td><td>5.5%</td><td>43.7%</td></tr>
+            <tr><td>8</td><td>5.2%</td><td>48.9%</td></tr>
+        </table>
+    </div>
+	<p style="margin-top: 10px; color: #555;"> В целом, оба анализа показывают важность второй темы -- именно в ней произошло убийство, кульминация сюжета.</p>
+	<img src="lsa_correlation_heatmap.png" width="1000">
+	<img src="lsa_semantic_space.png" width="1000">
+	<p style="margin-top: 10px; color: #555;"><strong>Выводы:</strong> Здесь можно увидеть, что первые три главные компоненты текстов двух языков(трех главных тем) имеют небольшие отличия в распределении. 3-я компонента для русского текста охватывает 7.2% в то время как для английского -- 6.2, первые две также имеют различный разброс данных. Из графика корреляций можно сделать вывод, что первая компонента коррелирует с другими сильнее остальных, а особенно -- с 6-й, в русском языке. В английском же это 3-я и 4-я компоненты  (расскажу об этом подробнее на защите).</p>
+	
+</div>
+
+<h2>Темы LSA (топ-12 слов)</h2>
+<div class="two-columns">
+    <div class="column">
+        <h3>Русский</h3>
+        <table>
+            <tr><th>Тема</th><th>Ключевые слова</th></tr>
+            <tr><td>1</td><td>человек, комната, молодой, знать, иванович, мочь, государь, катерина, рука, месяц</td></tr>
+            <tr><td>2</td><td>улица, лестница, бояться, встреча, человек, молодой, комната, старуха, несмотря, стоять</td></tr>
+            <tr><td>3</td><td>квартира, лестница, дверь, катерина, пить, хозяйка, комната, иванович, соня, бояться</td></tr>
+            <tr><td>4</td><td>рубль, делать, мочь, взять, копейка, месяц, стать, прийти, деньга, хороший</td></tr>
+            <tr><td>5</td><td>комната, батюшка, старуха, рубль, дверь, деньга, раскольников, вперёд, волос, старый</td></tr>
+            <tr><td>6</td><td>квартира, жить, господин, мочь, хозяйка, знать, лебезятников, комната, рубль, действительно</td></tr>
+            <tr><td>7</td><td>иванович, катерина, квартира, человек, батюшка, молодой, старуха, служба, пожалеть, жёлтый</td></tr>
+            <tr><td>8</td><td>квартира, пожалеть, соня, деньга, коли, выходить, действительно, милостивый, рука, лестница</td></tr>
+        </table>
+    </div>
+    <div class="column">
+        <h3>English</h3>
+        <table>
+            <tr><th>Topic</th><th>Key words</th></tr>
+            <tr><td>1</td><td>man, sir, know, room, time, katerina, ivanovna, young, like, though</td></tr>
+            <tr><td>2</td><td>old, woman, door, good, looked, like, eye, two, young, something</td></tr>
+            <tr><td>3</td><td>year, wife, dostoevsky, street, upon, man, feeling, suddenly, left, time</td></tr>
+            <tr><td>4</td><td>man, street, know, yes, go, young, landlady, katerina, sonia, matter</td></tr>
+            <tr><td>5</td><td>dostoevsky, year, katerina, work, room, ivanovna, time, sonia, house, hair</td></tr>
+            <tr><td>6</td><td>dostoevsky, landlady, rouble, nothing, two, year, hear, get, made, young</td></tr>
+            <tr><td>7</td><td>house, year, matter, go, going, step, upon, give, people, street</td></tr>
+            <tr><td>8</td><td>drink, education, woman, old, know, feeling, young, yet, man, sir</td></tr>
+        </table>
+    </div>
+	<p style="margin-top: 10px; color: #555;">Предыдущий анализ мог бы стать более интерпретируемым благодаря выделению ключевых слов для каждой темы. Тем не менее, выбранный нами метод не полностью описывает содержание этих тем, так как содержит довольно много нейтральной лексики. Можно предполагать, исходя из сюжета, к каким эпизодам относят какие ключевые слова, например, о кульминации в 3-й теме можно догадаться по глаголу "бояться", "старуха" в русском варианте и "old", "woman" в английском. В перспективы исследования можно включить исследование именно эмоционально окрашенной лексики.</p>
+</div>
+<h2>Упоминания персонажей</h2>
+<div class="two-columns">
+    <div class="column">
+        <h3>Русский</h3>
+        <table>
+            <tr><th>Персонаж</th><th>Упоминаний</th></tr>
+            <tr><td>Раскольников</td><td>978</td></tr>
+            <tr><td>Разумихин</td><td>379</td></tr>
+            <tr><td>Соня</td><td>322</td></tr>
+            <tr><td>Дуня</td><td>290</td></tr>
+            <tr><td>Порфирий</td><td>134</td></tr>
+            <tr><td>Лужин</td><td>115</td></tr>
+            <tr><td>Мармеладов</td><td>41</td></tr>
+        </table>
+    </div>
+    <div class="column">
+        <h3>English</h3>
+        <table>
+            <tr><th>Character</th><th>Mentions</th></tr>
+            <tr><td>Raskolnikov</td><td>883</td></tr>
+            <tr><td>Sonia</td><td>478</td></tr>
+            <tr><td>Dounia</td><td>440</td></tr>
+            <tr><td>Razumihin</td><td>399</td></tr>
+            <tr><td>Porfiry</td><td>206</td></tr>
+            <tr><td>Luzhin</td><td>113</td></tr>
+            <tr><td>Marmeladov</td><td>42</td></tr>
+        </table>
+    </div>
+	<p style="margin-top: 10px; color: #555;"><strong>Выводы:</strong> Частота упоминания персонажей, в целом, практически не различается.</p>
+
+</div>
+
+<hr>
+<div class="footer">
+    
+</div>
+
+</body>
+</html>
